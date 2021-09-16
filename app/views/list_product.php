@@ -43,7 +43,6 @@
                         <div class="content-details fadeIn-top">
                            <ul class="details-product-overlay">
                               <li>Ngon</li>
-        
                            </ul>
                         </div>
                      </div>
@@ -66,13 +65,9 @@
                    </form>
               </div>
             </div> 
-           
             <?php
             }
             ?>
-          
-           
-         
             <div class="clear"></div>
          </div>
          <div class="clear"></div>

@@ -1,3 +1,4 @@
+<div class="container">
 <?php
    if(!empty($_GET['msg'])){
     $msg = unserialize(urldecode($_GET['msg']));
@@ -46,4 +47,5 @@
 
   <button type="submit" name = "btn_dangky"class="btn btn-success">Thêm danh mục</button>
 </form>
+</div>
 </div>

@@ -1,23 +1,33 @@
 <div class="container">
-<h3 style="text-align: center">Liệt kê danh mục sản phẩm</h3>
+<h3 style="text-align: center">Liệt kê sản phẩm</h3>
 <div style="text-align: left">
-<form action="<?php echo BASE_URL?>/product/add_category">
+<form action="<?php echo BASE_URL?>/productdaily/add_productdaily">
 <button type = "submit" class = "btn btn-success" style = "margin-bottom:15px"><i class="fas fa-fw fa-plus-circle" style = "margin-right:5px;"></i>
-Thêm Loại sản phẩm
+Thêm sản phẩm
 </button>  
 </form>
-
 <div class="input-group flex-nowrap">
-<form method="post" class="formsearch">
-  <input type="text" class="textbox" placeholder="Search">
-  <button title="Search" type="submit" class="button">
+<?php
+if(!empty($_POST['search'])){
+$search_value=$_POST["search"];
+
+echo($search_value)
+}
+
+?>
+
+
+<form action="" method="POST" class="formsearch">
+  <input type="search" class="textbox" placeholder="Vui Lòng Điền Sản Phẩm muốn tìm">
+  <button type="submit" class="button">
   <i class="fas fa-search"></i>
   </button>
 </form>
 </div>
 
 
-</div>
+
+
 <?php
    if(!empty($_GET['msg'])){
     $msg = unserialize(urldecode($_GET['msg']));
@@ -26,37 +36,52 @@ Thêm Loại sản phẩm
     }
  }
 ?>
-<table class="table table-striped">
-    <thead>
+<table class="table">
+<thead>
       <tr>
         <th>Id</th>
-        <th>Tên danh mục</th>
-        <th>Mô tả</th>
+        <th>Tên sản phẩm</th>
+        <th>Hình sản phẩm</th>
+        <th>Danh mục</th>
+        <th>Giá sản phẩm</th>
+        <th>Số lượng sản phẩm</th>
+        <th>Sản phẩm hot</th>
+        <th width="100px;">Mô tả</th>
         <th>Quản lý</th>
       </tr>
     </thead>
     <tbody>
     <?php
     $i = 0;
-    foreach($category as $key => $cate){
+    foreach($product as $key => $pro){
         $i++;
     ?>
       <tr>
         <td><?php echo $i ?></td>
-        <td><?php echo $cate['title_category_product'] ?></td>
-        <td><?php echo $cate['desc_category_product'] ?></td>
+        <td><?php echo $pro['title_product'] ?></td>
+        <td><img src="<?php echo BASE_URL ?>/public/uploads/product/<?php echo $pro['image_product'] ?>"height="50" width="50"></td>
+        <td><?php echo $pro['title_category_product'] ?></td>
+        <td><?php echo number_format($pro['price_product'],0,',','.').'đ' ?></td>
+        <td><?php echo $pro['quantity_product'] ?></td>
+        <td><?php 
+        if($pro['product_hot']==0){
+          echo 'Không có';
+        }else{
+          echo 'Có';
+        }
+        ?></td>
+        <td style="
+    word-break: break-all;" ><?php echo $pro['desc_product'] ?></td>
         <td>
-        <a style="color:#404040;" href="<?php echo BASE_URL ?>/product/delete_category/<?php echo $cate['id_category_product'] ?>"><i class="fas fa-trash"></i></a> || 
-        <a style="color:#404040;" href="<?php echo BASE_URL ?>/product/edit_category/<?php echo $cate['id_category_product'] ?>"><i class="far fa-edit"></i></a></td>
+        <a style="color:#404040;" href="<?php echo BASE_URL ?>/product/delete_product/<?php echo $pro['id_product'] ?>"><i class="fas fa-trash"></i></a> || 
+        <a style="color:#404040;" href="<?php echo BASE_URL ?>/product/edit_product/<?php echo $pro['id_product'] ?>"><i class="far fa-edit"></i></a></td>
       </tr> 
     <?php
     }
     ?>
     </tbody>
-  </table>
+</table>
 </div>
-
-
 <style>
   
   .formsearch {

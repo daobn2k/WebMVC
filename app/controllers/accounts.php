@@ -12,9 +12,6 @@ class accounts extends DController{
         $table_admin = "tbl_accounts";
         $customermodel = $this->load->model('customermodel');
         $data['accounts'] = $customermodel->accounts_admin($table_admin); 
-
-   
-
         $this->load->view('cpanel/header');   
         $this->load->view('cpanel/menu');    
         $this->load->view('cpanel/accounts/info_accounts',$data);
@@ -107,7 +104,6 @@ echo "ĐÃ xóa thành công";
         $fullname = $_POST['fullname'];
         $address = $_POST['address'];
         $role = $_POST['role'];
-
                         
                    if($repassword != $password){
                     $message['msg'] = "Vui Lòng Nhập Đúng Mật Khẩu";

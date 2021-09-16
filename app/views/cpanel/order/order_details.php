@@ -1,6 +1,5 @@
+<div class="container"> 
 <h3 style="text-align: center">Liệt kê đơn hàng chi tiết</h3>
-
-
 <table class="table table-striped">
     <thead>
       <tr>
@@ -66,8 +65,9 @@
     <form action="<?php echo BASE_URL ?>/order/order_confirm/<?php echo $ord['order_code'] ?>" method="POST">
     <tr>
         <td><input type="submit" name="update_order" value="Đã xử lý" class="btn btn-success"></td>
-        <td align="right" colspan="6">Tổng tiền : <?php echo number_format($total,0,',','.').'đ' ?></td>
+        <td style="text-align:right" colspan="6">Tổng tiền : <?php echo number_format($total,0,',','.').'đ' ?></td>
     </tr>
     </form>
     </tbody>
   </table>
+  </div>

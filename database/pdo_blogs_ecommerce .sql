@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2021 at 05:40 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: Sep 16, 2021 at 06:09 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,17 +35,18 @@ CREATE TABLE `tbl_accounts` (
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL
+  `role` varchar(255) NOT NULL,
+  `evaluate_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_accounts`
 --
 
-INSERT INTO `tbl_accounts` (`accounts_id`, `username`, `password`, `fullname`, `email`, `phone`, `address`, `role`) VALUES
-(1, 'duocadmin', '123456', 'Trình Quốc Được', 'trinhduoc69@gmail.com', '0942858890', 'abccc', 'admin'),
-(2, 'duocuser', '123456', 'Trình Quốc Được', 'trinhduoc69@gmail.com', '0942858890', 'Phú Thọ CITY', 'admin'),
-(11, 'tovantiep', '123456', 'Tô Văn Tiệp', 'vvdao096@gmail.com', '0942858890', 'Núi Móng -Hoàn Sơn -Tiên Du-Bắc Ninh', 'user');
+INSERT INTO `tbl_accounts` (`accounts_id`, `username`, `password`, `fullname`, `email`, `phone`, `address`, `role`, `evaluate_id`) VALUES
+(1, 'duocadmin', '123456', 'Trình Quốc Được', 'trinhduoc69@gmail.com', '0942858890', 'abccc', 'admin', 0),
+(2, 'duocuser', '123456', 'Trình Quốc Được', 'trinhduoc69@gmail.com', '0942858890', 'Phú Thọ CITY', 'admin', 0),
+(11, 'tovantiep', '123456', 'Tô Văn Tiệp', 'vvdao096@gmail.com', '0942858890', 'Núi Móng -Hoàn Sơn -Tiên Du-Bắc Ninh', 'user', 0);
 
 -- --------------------------------------------------------
 
@@ -67,6 +68,54 @@ INSERT INTO `tbl_category_product` (`id_category_product`, `title_category_produ
 (29, 'Bánh ', 'Bánh đa, xèo...'),
 (45, 'Nem', 'Nem Hà Nội, Thanh Hóa...'),
 (60, 'Bún', 'Bún Khô,Bún Nước');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_evaluateaccount`
+--
+
+CREATE TABLE `tbl_evaluateaccount` (
+  `evaluate_id` int(11) NOT NULL,
+  `evaluate_title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_evaluateaccount`
+--
+
+INSERT INTO `tbl_evaluateaccount` (`evaluate_id`, `evaluate_title`) VALUES
+(1, 'bronze');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_menucombo`
+--
+
+CREATE TABLE `tbl_menucombo` (
+  `combo_id` int(11) NOT NULL,
+  `combo_name` varchar(255) NOT NULL,
+  `combo_category_id` int(11) NOT NULL,
+  `combo_price` varchar(255) NOT NULL,
+  `combo_desc` varchar(255) NOT NULL,
+  `combo_quantity` int(11) NOT NULL,
+  `combo_image` varchar(255) NOT NULL,
+  `combo_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_menudaily`
+--
+
+CREATE TABLE `tbl_menudaily` (
+  `menudaily_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -128,33 +177,48 @@ INSERT INTO `tbl_order_details` (`order_details_id`, `order_code`, `product_id`,
 
 CREATE TABLE `tbl_product` (
   `id_product` int(11) NOT NULL,
+  `stock_id` int(11) NOT NULL,
   `title_product` varchar(255) NOT NULL,
   `price_product` varchar(100) NOT NULL,
   `desc_product` text NOT NULL,
   `quantity_product` int(11) NOT NULL,
   `image_product` varchar(100) NOT NULL,
   `id_category_product` int(11) NOT NULL,
-  `product_hot` int(11) NOT NULL
+  `product_hot` int(11) NOT NULL,
+  `product_sale` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_product`
 --
 
-INSERT INTO `tbl_product` (`id_product`, `title_product`, `price_product`, `desc_product`, `quantity_product`, `image_product`, `id_category_product`, `product_hot`) VALUES
-(4, 'Bánh đa kế Bắc Giang', '10000', '', 100, 'badakebg.jpg', 29, 0),
-(6, 'Bánh đậu xanh Hải Dương', '40000', '', 100, 'banhdauxanh.jpg', 29, 0),
-(7, 'Bánh ít lá gai', '8000', '', 100, 'banhitlagai.jpg', 29, 0),
-(9, 'Bánh tẻ', '10000', '', 100, 'banhte.jpg', 29, 0),
-(10, 'Bánh xèo', '20000', '', 100, 'banhxeo.jpg', 29, 0),
-(11, 'Bún bò Huế', '30000', '', 100, 'bunbohue.jpg', 60, 1),
-(12, 'Bún chả Hà Nội', '30000', '', 100, 'bunchahn.jpg', 60, 0),
-(13, 'Bún đậu mắm tôm', '40000', '', 100, 'bundaumamtom.jpg', 60, 1),
-(18, 'Gỏi cuốn', '10000', '', 100, 'goicuon.jpg', 45, 0),
-(19, 'Hủ tiếu', '30000', '', 100, 'hutieu.jpg', 60, 0),
-(20, 'Nem bùi', '35000', '', 100, 'nembui.jpg', 45, 1),
-(37, 'Nem Chua Thanh Hóa', '10000', '', 100, 'nemchuath.jpg', 45, 1),
-(38, 'Bánh Đa Cua Hải Phòng', '35000', 'abccc', 100, 'banhdacuahp.jpg', 60, 1);
+INSERT INTO `tbl_product` (`id_product`, `stock_id`, `title_product`, `price_product`, `desc_product`, `quantity_product`, `image_product`, `id_category_product`, `product_hot`, `product_sale`) VALUES
+(4, 0, 'Bánh đa kế Bắc Giang', '10000', '', 100, 'badakebg.jpg', 29, 0, ''),
+(6, 0, 'Bánh đậu xanh Hải Dương', '40000', '', 100, 'banhdauxanh.jpg', 29, 0, ''),
+(7, 0, 'Bánh ít lá gai', '8000', '', 100, 'banhitlagai.jpg', 29, 0, ''),
+(9, 0, 'Bánh tẻ', '10000', '', 100, 'banhte.jpg', 29, 0, ''),
+(10, 0, 'Bánh xèo', '20000', '', 100, 'banhxeo.jpg', 29, 0, ''),
+(11, 0, 'Bún bò Huế', '30000', '', 100, 'bunbohue.jpg', 60, 1, ''),
+(12, 0, 'Bún chả Hà Nội', '30000', '', 100, 'bunchahn.jpg', 60, 0, ''),
+(13, 0, 'Bún đậu mắm tôm', '40000', '', 100, 'bundaumamtom.jpg', 60, 1, ''),
+(18, 0, 'Gỏi cuốn', '10000', '', 100, 'goicuon.jpg', 45, 0, ''),
+(19, 0, 'Hủ tiếu', '30000', '', 100, 'hutieu.jpg', 60, 0, ''),
+(20, 0, 'Nem bùi', '35000', '', 100, 'nembui.jpg', 45, 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_stock`
+--
+
+CREATE TABLE `tbl_stock` (
+  `stock_id` int(11) NOT NULL,
+  `stock_product` varchar(255) NOT NULL,
+  `stock_category_id` int(11) NOT NULL,
+  `stock_quantity` int(11) NOT NULL,
+  `stock_purchaseprice` varchar(255) NOT NULL,
+  `stock_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -171,6 +235,24 @@ ALTER TABLE `tbl_accounts`
 --
 ALTER TABLE `tbl_category_product`
   ADD PRIMARY KEY (`id_category_product`);
+
+--
+-- Indexes for table `tbl_evaluateaccount`
+--
+ALTER TABLE `tbl_evaluateaccount`
+  ADD PRIMARY KEY (`evaluate_id`);
+
+--
+-- Indexes for table `tbl_menucombo`
+--
+ALTER TABLE `tbl_menucombo`
+  ADD PRIMARY KEY (`combo_id`);
+
+--
+-- Indexes for table `tbl_menudaily`
+--
+ALTER TABLE `tbl_menudaily`
+  ADD PRIMARY KEY (`menudaily_id`);
 
 --
 -- Indexes for table `tbl_order`
@@ -191,6 +273,12 @@ ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`id_product`);
 
 --
+-- Indexes for table `tbl_stock`
+--
+ALTER TABLE `tbl_stock`
+  ADD PRIMARY KEY (`stock_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -204,7 +292,25 @@ ALTER TABLE `tbl_accounts`
 -- AUTO_INCREMENT for table `tbl_category_product`
 --
 ALTER TABLE `tbl_category_product`
-  MODIFY `id_category_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_category_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- AUTO_INCREMENT for table `tbl_evaluateaccount`
+--
+ALTER TABLE `tbl_evaluateaccount`
+  MODIFY `evaluate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_menucombo`
+--
+ALTER TABLE `tbl_menucombo`
+  MODIFY `combo_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_menudaily`
+--
+ALTER TABLE `tbl_menudaily`
+  MODIFY `menudaily_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
@@ -223,6 +329,12 @@ ALTER TABLE `tbl_order_details`
 --
 ALTER TABLE `tbl_product`
   MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT for table `tbl_stock`
+--
+ALTER TABLE `tbl_stock`
+  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

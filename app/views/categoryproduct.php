@@ -2,7 +2,7 @@
    $name = 'Danh mục chưa có sản phẩm';
       foreach($category_by_id as $key => $pro){
          $name = $pro['title_category_product'];
-      }
+   }
 ?>
 <section>
    <div class="bg_in">

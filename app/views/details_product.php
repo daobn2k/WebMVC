@@ -10,6 +10,7 @@
 <section>
 <?php 
    foreach($details_product as $key => $details){
+      print_r($details)
 ?>  <form action="<?php echo BASE_URL ?>/giohang/themgiohang" method="POST">
 <input type="hidden" value="<?php echo $details['id_product']?>" name="product_id">
 <input type="hidden" value="<?php echo $details['title_product']?>" name="product_title">
@@ -49,22 +50,11 @@
                         </div>
                         <div class="slider-galery ">
                          <div id="sync1" class="owl-carousel owl-theme">
-                       
-
                                   <div class="item">
                                       <img src="<?php echo BASE_URL ?>/public/uploads/product/<?php echo $details['image_product']?>" width="100%">
                                   </div>
-                                 
-                                  </div>
-
-                                  <div id="sync2" class="owl-carousel owl-theme">
-                                     <div class="item">
-                                      <img src="<?php echo BASE_URL ?>/public/uploads/product/<?php echo $details['image_product']?>" width="100%">
-                                  </div>
-
-                                  
-                                  </div> 
-                           
+                           </div>
+                        </div> 
                         </div>
                         <div class="content-des-pro">
                            <div class="content-des-pro_in">
@@ -89,7 +79,7 @@
                               <div class="number_price">
                                  <div class="custom pull-left">
                                     <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 0 ) result.value--;return false;" class="reduced items-count" type="button">-</button>
-                                    <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="product_quantity">
+                                    <input type="text" class="input-text qty" title="Qty" value="1" maxlength="<?php echo $details['quantity_product']?>" id="qty" name="product_quantity">
                                     <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button">+</button>
                                     <div class="clear"></div>
                                  </div>

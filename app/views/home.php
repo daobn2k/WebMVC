@@ -4,6 +4,7 @@
                 <div class="box-title">
                     <div class="title-bar">
                         <h1>Món ăn HOT</h1>
+                        
                         <a class="read_more" href="<?php echo BASE_URL ?>/sanpham/tatca">
                   Xem thêm
                   </a>
@@ -68,9 +69,8 @@
             </div>
             <?php
             foreach($category as $key => $cate){
-                
             ?>
-
+      
             <div class="module_pro_all">
                 <div class="box-title">
                     <div class="title-bar">

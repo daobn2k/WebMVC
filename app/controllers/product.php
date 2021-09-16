@@ -90,11 +90,11 @@
         }
         }
         public function list_product(){
+           
             $this->load->view('cpanel/header');
            $this->load->view('cpanel/menu');
            $table_product = "tbl_product";
            $table_category = "tbl_category_product";
-
            $categorymodel = $this->load->model('categorymodel'); 
            $data['product'] = $categorymodel->product($table_product, $table_category);
            $this->load->view('cpanel/product/list_product', $data);

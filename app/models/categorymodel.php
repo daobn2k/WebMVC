@@ -6,12 +6,12 @@
 
 
         public function category($table){
-            $sql = "SELECT * FROM $table ORDER BY id_category_product DESC  ";
+            $sql = "SELECT * FROM $table ORDER BY id_category_product DESC";
             return $this->db->select($sql);
         }
 
         public function category_home($table){
-                $sql = "SELECT * FROM $table ORDER BY id_category_product DESC  ";
+                $sql = "SELECT * FROM $table ORDER BY id_category_product DESC";
                 return $this->db->select($sql);    
         }
         public function categorybyid_home($table,$table_product,$id){
@@ -36,8 +36,15 @@
         public function deletecategory($table_category_product,$cond){
             return $this->db->delete($table_category_product,$cond);
         }
-
-
+        
+        public function list_product($table){
+            $sql = " SELECT * FROM $table ";
+            return $this->db->select($sql);    
+        }
+        public function list_product_search($table_product,$search_value){
+            $sql = "SELECT * FROM $table_product WHERE title_product LIKE '$search_value%' ";
+            return $this->db->select($sql);        
+        }
         public function list_product_home($table_product){
             $sql = "SELECT * FROM $table_product ORDER BY $table_product.id_product DESC ";
             return $this->db->select($sql);        

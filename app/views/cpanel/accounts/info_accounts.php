@@ -1,3 +1,4 @@
+<div class="container">
 <h3 style="text-align: center">Danh Sách Tài Khoản</h3>
 <div style="text-align: left">
 <form action="<?php echo BASE_URL?>/accounts/add_accountsadmin">
@@ -6,6 +7,18 @@ Thêm tài khoản quản lý
 </button>  
 </form>
 </div>
+
+
+<div class="input-group flex-nowrap">
+<form method="post" class="formsearch">
+  <input type="text" class="textbox" placeholder="ddasdaadsdsa ">
+  <button title="Search" type="submit" class="button">
+  <i class="fas fa-search"></i>
+  </button>
+</form>
+</div>
+
+
 <?php
  if(!empty($_GET['msg'])){
     $msg = unserialize(urldecode($_GET['msg']));
@@ -50,3 +63,60 @@ Thêm tài khoản quản lý
     ?>
     </tbody>
   </table>
+</div>  
+
+<style>
+  
+  .formsearch {
+    display: flex;
+    width: 100%;
+    margin-bottom:20px;  
+    outline: 0;
+    float: left;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.formsearch  .textbox {
+  width: 100% ;
+  outline: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #212121;
+  border: 0;
+  float: left;
+  padding :4px 16px;
+  border-radius: 4px 0 0 4px;
+}
+
+.formsearch > .textbox:focus {
+  outline: 0;
+  background-color: #FFF;
+}
+
+.formsearch > .button {
+  outline: 0;
+  background: none;
+  background-color: rgba(38, 50, 56, 0.8);
+  float: left;
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  line-height: 42px;
+  border: 0;
+  color: #FFF;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 16px;
+  text-rendering: auto;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: background-color .4s ease;
+  transition: background-color .4s ease;
+  -webkit-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.formsearch > .button:hover {
+  background-color: rgba(0, 150, 136, 0.8);
+}
+</style>
