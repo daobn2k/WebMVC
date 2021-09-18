@@ -1,3 +1,3 @@
 <?php
-    define('BASE_URL','http://localhost/blogs_ecomerce');
+    define('BASE_URL','http://localhost/WEBMVC');
 ?>
