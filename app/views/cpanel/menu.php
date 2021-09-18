@@ -84,6 +84,12 @@
     </div>
   </div>
 </li>
+<li class="nav-item">
+  <a class="nav-link collapsed" href="<?php echo BASE_URL?>/thuchi/list" >
+    <i class="fas fa-fw fa-shopping-cart"></i>
+    <span>Quản  lý thu </span>
+  </a>
+</li>
 <!-- Divider -->
 <hr class="sidebar-divider">
 
