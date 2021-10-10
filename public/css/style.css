@@ -568,24 +568,24 @@ button {
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
 }
-/* .btn {
-    border: 0;
-    background: #0087cc;
-    box-shadow: 0 5px 0 #006599;
-    color: #fff;
-    cursor: pointer;
-    font: inherit;
-    display: inline-block;
-    margin: 0;
-    outline: 0;
-    line-height: 1.5em;
-    padding: 12px 20px;
-    transition: all .05s linear;
-    -moz-transition: all .05s linear;
-    -webkit-transition: all .05s linear;
-    -ms-transition: all .05s linear;
-    -o-transition: all .05s linear;
-} */
+.btn {
+  border: 0;
+  background: #0087cc;
+  box-shadow: 0 5px 0 #006599;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  display: inline-block;
+  margin: 0;
+  outline: 0;
+  line-height: 1.5em;
+  padding: 12px 20px;
+  transition: all 0.05s linear;
+  -moz-transition: all 0.05s linear;
+  -webkit-transition: all 0.05s linear;
+  -ms-transition: all 0.05s linear;
+  -o-transition: all 0.05s linear;
+}
 .title_hidden {
   width: 100%;
   white-space: nowrap;
@@ -3313,4 +3313,7 @@ ul.details-product-overlay li {
   height: 321px;
   overflow-y: scroll;
   width: 100%;
+}
+.active:hover{
+background-color: unset !important;
 }

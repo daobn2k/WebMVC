@@ -81,6 +81,13 @@
         $sql = "SELECT * FROM $table_product  ORDER BY RAND() limit 4";
         return $this->db->select($sql);
     }
+
+
+
+    public function get_user_id($table,$username){
+        $sql = "SELECT * FROM $table  where $table.username = $username ";
+        return $this->db->select($sql);
+    }
     }
 ?>
 

@@ -1,8 +1,8 @@
 <footer>
          <div class="footer_top_bootom">
             <div class="bg_in">
-               <div class="footer footer_bottom">
-                  <div class="footer-col">
+               <div class="footer footer_bottom" style="background:#fff;">
+                  <div class="footer-col"  >
                      <h4>Thông tin công ty</h4>
                      <div class="footer-col-content">
                         <ul>
@@ -12,7 +12,7 @@
                         </ul>
                      </div>
                   </div>
-                  <div class="footer-col">
+                  <div class="footer-col"  >
                      <h4>Hỗ trợ khách hàng</h4>
                      <div class="footer-col-content">
                         <ul>
@@ -23,7 +23,7 @@
                         </ul>
                      </div>
                   </div>
-                  <div class="footer-col">
+                  <div class="footer-col" >
                      <h4>Kết nối với chúng tôi</h4>
                      <div class="footer-col-content">
                         <ul class="social">

@@ -6,8 +6,7 @@
                   }
                }
             
- if (Session::get('role') === 'admin'){
-
+ if (Session::get('role') !== 'user'){
 
 ?>
 <section>
@@ -78,7 +77,7 @@
                                     <div class="clear margintop5">
                                        <div class="floatleft">
                                        
-                                       <input type="number" min="0" class="inputsoluong" name="qty[<?php echo $value['product_id'] ?>]"  
+                                       <input type="number" style="font-size:16px !important;" min="0" class="inputsoluong" name="qty[<?php echo $value['product_id'] ?>]"  
                                        value="<?php echo $value['product_quantity'] ?>">
                                        
                                        </div>
@@ -89,9 +88,9 @@
                                  
                                  <td colspan = "2" class="actions aligncenter">
                                        
-                                       <button type="submit" style="box-shadow: none;" value="<?php echo $value['product_id'] ?>" name="delete_cart" class="btn btn-sm btn-warning">Xóa</button>
+                                       <button type="submit" style="box-shadow: none;font-size:16px;" value="<?php echo $value['product_id'] ?>" name="delete_cart" class="btn btn-sm btn-warning">Xóa</button>
                                        
-                                       <button type="submit" style="box-shadow: none;" value="<?php echo $value['product_id'] ?>" name="update_cart" class="btn btn-sm btn-primary">Cập nhật</button>  
+                                       <button type="submit" style="box-shadow: none;font-size:16px;" value="<?php echo $value['product_id'] ?>" name="update_cart" class="btn btn-sm btn-primary">Cập nhật</button>  
 
                                  </td>
                               </tr>
@@ -126,7 +125,7 @@
                            <tr >
                               <td colspan = "9" class ='textleft_text' > 
                               <div class="clear"> 
-                         <button class = "btn btn-success">  <a href="<?php echo BASE_URL?>/login/login" ><i class="fa fa fa-shopping-cart"></i> Gửi Đơn Hàng</a> </button>      
+                         <button class = "btn btn-success" style="font-size:16px;">  <a href="<?php echo BASE_URL?>/login/login" ><i class="fa fa fa-shopping-cart"></i> Gửi Đơn Hàng</a> </button>      
                                </div>
                               </td>
                            </tr>
@@ -226,9 +225,9 @@
                                  
                                  <td class="actions aligncenter">
                                        
-                                       <button type="submit" style="box-shadow: none;" value="<?php echo $value['product_id'] ?>" name="delete_cart" class="btn btn-sm btn-warning">Xóa</button>
+                                       <button type="submit" style="box-shadow: none;font-size:16px;" value="<?php echo $value['product_id'] ?>" name="delete_cart" class="btn btn-sm btn-warning">Xóa</button>
                                        
-                                       <button type="submit" style="box-shadow: none;" value="<?php echo $value['product_id'] ?>" name="update_cart" class="btn btn-sm btn-primary">Cập nhật</button>  
+                                       <button type="submit" style="box-shadow: none;font-size:16px;" value="<?php echo $value['product_id'] ?>" name="update_cart" class="btn btn-sm btn-primary">Cập nhật</button>  
 
                                  </td>
                               </tr>
@@ -277,7 +276,7 @@
                                  <div class="content-box_contact">
                                  <div class="row btnclass">
                                        <div class="input ipmaxn ">
-                                          <input type="submit" class="btn btn-success" name="frmSubmit" id="frmSubmit" value="Gửi đơn hàng" style = "width:150px;">
+                                          <input type="submit" class="btn btn-success" name="frmSubmit" id="frmSubmit" value="Gửi đơn hàng" style = "width:150px; font-size:16px;">
                                        </div>
                                        
                                     </div>         

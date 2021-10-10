@@ -4,6 +4,12 @@
                 <div class="box-title">
                     <div class="title-bar">
                         <h1>Món ăn HOT</h1>
+   
+                        <?php 
+                        foreach($getidbyusername as $key => $getidbyusername) {
+                          echo $getidbyusername['accounts_id'];
+                        }
+                        ?>
                         
                         <a class="read_more" href="<?php echo BASE_URL ?>/sanpham/tatca">
                   Xem thêm
@@ -46,7 +52,7 @@
                         </a>
                      </div>
                      <div>                       
-                        <input type="submit" style="box-shadow: none" class="btn btn-success" name="addcart" value="Đặt hàng">                    
+                        <input type="submit" style="box-shadow: none;    font-size: 16px;" class="btn btn-success" name="addcart" value="Đặt hàng">                    
                      </div>
                      <div class="price_old_new">
                         <div class="price">
@@ -113,7 +119,7 @@
                         </a>
                      </div>
                      <div>                       
-                        <input type="submit" style="box-shadow: none" class="btn btn-success" name="addcart" value="Đặt hàng">                    
+                        <input type="submit" style="box-shadow: none;    font-size: 16px;" class="btn btn-success" name="addcart" value="Đặt hàng">                    
                      </div>
                      <div class="price_old_new">
                         <div class="price">

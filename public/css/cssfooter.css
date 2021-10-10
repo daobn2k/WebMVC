@@ -3409,10 +3409,8 @@ to{transform:scale(1)}
         bottom: 3px;
         right: 57px
     }
-    div.menu_left:after {
-        right: 19px;
-        top: 10px;
-        font-size: 16px
+   .menu_left::after {
+       display:none
     }
     .header_top.fix_top .bg_in {
         width: 100%

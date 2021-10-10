@@ -12,10 +12,11 @@
             Session::init();
             $table = 'tbl_category_product';   
             $table_product = 'tbl_product';   
+            $table_account = 'tbl_accounts';
             $categorymodel = $this->load->model('categorymodel');
             $data['category'] = $categorymodel->category_home($table); 
             $data['product_home'] = $categorymodel->list_product_index($table_product); 
-
+            $data['getidbyusername']= $categorymodel->get_user_id($table_account,'duocadmin'); 
             $this->load->view('header',$data);       
             $this->load->view('home',$data);
             $this->load->view('footer');
@@ -49,13 +50,13 @@
                 $mail->isSMTP();                                      // Set mailer to use SMTP
                 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
                 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = 'phpLop01@gmail.com';                 // SMTP username
-                $mail->Password = 'kqlrdkzrgsmmomnm'; 
+                $mail->Username = 'vandao096@gmail.com';                 // SMTP username
+                $mail->Password = 'vandao2k'; 
                 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
                 $mail->Port = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('phpLop01@gmail.com', 'admin');
+                $mail->setFrom('vandao096@gmail.com', 'admin');
                 $mail->addAddress('tovantiep2604@gmail.com', 'quản trị nhà hàng');
                 
                 $mail->isHTML(true);                                  // Set email format to HTML

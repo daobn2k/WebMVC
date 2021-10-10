@@ -10,7 +10,6 @@
 <section>
 <?php 
    foreach($details_product as $key => $details){
-      print_r($details)
 ?>  <form action="<?php echo BASE_URL ?>/giohang/themgiohang" method="POST">
 <input type="hidden" value="<?php echo $details['id_product']?>" name="product_id">
 <input type="hidden" value="<?php echo $details['title_product']?>" name="product_title">
@@ -68,17 +67,19 @@
                                     </div>
                                     <div class="status_pro"><span><b>Xuất xứ:</b>  Việt Nam</span></div>
                                  </div>
-                                 <div class="color_price">
+                                 <div class="color_price" style="    display: flex;
+    justify-content: center;
+    align-items: center;">
                                     <span class="title_price bg_green">Giá bán</span> <?php echo number_format ($details['price_product'],0,',','.')?> <span>vnđ</span>
                                     <div class="clear"></div>
                                  </div>
                               </div>
                               <div class="clear"></div>
                            </div>
-                           <div class="ct">
+                           <div class="ct" style="margin-top:1rem;">
                               <div class="number_price">
                                  <div class="custom pull-left">
-                                    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 0 ) result.value--;return false;" class="reduced items-count" type="button">-</button>
+                                    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 0 ) result.value--;return false;" class="reduced items-count" style="margin-top:0;" type="button">-</button>
                                     <input type="text" class="input-text qty" title="Qty" value="1" maxlength="<?php echo $details['quantity_product']?>" id="qty" name="product_quantity">
                                     <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button">+</button>
                                     <div class="clear"></div>
@@ -86,7 +87,7 @@
                                  <div class="clear"></div>
                               </div>
                               <div class="wp_a">
-                              <input type="submit" style="box-shadow: none" class="btn btn-success" name="addcart" value="Đặt hàng">              
+                              <input type="submit" style="box-shadow: none;height: 40px;width: 140px;  font-size: 16px;" class="btn btn-success" name="addcart" value="Đặt hàng">              
                                  
                                  </a>
       
@@ -215,7 +216,7 @@
                         </div>
                         <div class="add_card">
                  
-                        <input type="submit" style="box-shadow: none" class="btn btn-success" name="addcart" value="Đặt hàng">                    
+                        <input type="submit" style="box-shadow: none;    font-size: 16px;" class="btn btn-success" name="addcart" value="Đặt hàng">                    
 
                            </a>
                         </div>

@@ -28,7 +28,29 @@
     <meta name="geo.placename" content="Ho Chi Minh City" />
     <meta name="geo.position" content="10.823099;106.629664" />
     <meta name="ICBM" content="10.823099, 106.629664" />
-    <link rel="icon" type="image/png" href="template/Default/img/favicon.png">
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="<?php echo BASE_URL ?>/asset/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="<?php echo BASE_URL ?>/asset/css/style.css" rel='stylesheet' type='text/css' />
+<!-- js -->
+   <script src="<?php echo BASE_URL ?>/asset/js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="<?php echo BASE_URL ?>/asset/js/move-top.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL ?>/asset/js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<link rel="icon" type="image/png" href="template/Default/img/favicon.png">
     <!--tkw-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>/public/css/product.css">
@@ -39,73 +61,104 @@
     <link href="<?php echo BASE_URL?>/public/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>/public/css/product.css">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>/public/css/style.css">
+<link href="<?php echo BASE_URL ?>/asset/css/font-awesome.css" rel="stylesheet"> 
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<!--- start-rate---->
+<script src="<?php echo BASE_URL ?>/asset/js/jstarbox.js"></script>
+	<link rel="stylesheet" href="<?php echo BASE_URL ?>/asset/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+		<script type="text/javascript">
+			jQuery(function() {
+			jQuery('.starbox').each(function() {
+				var starbox = jQuery(this);
+					starbox.starbox({
+					average: starbox.attr('data-start-value'),
+					changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+					ghosting: starbox.hasClass('ghosting'),
+					autoUpdateAverage: starbox.hasClass('autoupdate'),
+					buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+					stars: starbox.attr('data-star-count') || 5
+					}).bind('starbox-value-changed', function(event, value) {
+					if(starbox.hasClass('random')) {
+					var val = Math.random();	
+					starbox.next().text(' '+val);
+					return val;
+					} 
+				})
+			});
+		});
+		</script>
+<!---//End-rate---->    
+   
 </head>
 
 <body>
 <i class=""></i>
 <header>
-        <div class="info_top">
-            <div class="bg_in">
-                <p class="p_infor">
-                    <span><i class="fa fa-envelope-o" aria-hidden="true"></i>Email:trinhduoc69@gmail.com</span>
-                    <span><i class="fa fa-phone" aria-hidden="true"></i> Hotline: 0943888967</span>
-                </p>
-            </div>
-        </div>
-        <div class="header_top_menu">
-            <div class="header_top_menu_all">
-                <div class="header_top">
-                    <div class="bg_in">
-                        <div class="logo">
-                            <a href="<?php echo BASE_URL ?>"><img src="<?php echo BASE_URL ?>/public/images/49-53food.jpg" width="250" height="100" alt="logohere.jpeg" /></a>
-                        </div>
-                        <nav class="menu_top">
-                            <form class="search_form" method="get" action="">
-                                <input class="searchTerm" name="search" placeholder="Nhập từ cần tìm..." />
-                                <button class="searchButton" type="submit">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </form>
-                        </nav>
-                        <div class="cart_wrapper">
-                            <div class="cols_50">
-                                <div class="hot_line_top">
-                                    <span><b>Trụ sở chính</b></span>
-                                    <br/>
-                                    <span class="red">Hà Nội</span>
-                                </div>
-                            </div>
-                            <div class="cols_50">
-                                <div class="hot_line_top">
-                                    <span><b>Văn phòng chi nhánh</b></span>
-                                    <br/>
-                                    <span class="red">P108 69/68Triều Khúc</span>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
+<a href="offer.html"><img src="<?php echo BASE_URL?>/asset/images/download.png" class="img-head" alt=""></a>
+<div class="header">
+
+		<div class="container" style="
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+        ">
+			
+			<div class="logo">
+				<h1 ><a href="index.html">Big Store<span style="height: 0px;">The Best Supermarket</span></a></h1>
+			</div>
+			<!-- <div class="head-t">
+				<ul class="card" style="display:flex;flex-direction: unset;">
+					<li><a style="font-size: 18px;
+    line-height: 22px;" href="" ><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a></li>
+					<li><a style="font-size: 18px;
+    line-height: 22px;" href="" ><i class="fa fa-user" aria-hidden="true"></i>Login</a></li>
+					<li><a style="font-size: 18px;
+    line-height: 22px;" href="" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li>
+					<li><a style="font-size: 18px;
+    line-height: 22px;" href="" ><i class="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
+					<li><a style="font-size: 18px;
+    line-height: 22px;" href="" ><i class="fa fa-ship" aria-hidden="true"></i>Shipping</a></li>
+				</ul>	
+			</div> -->
+			
+			<div class="header-ri">
+				<ul class="social-top">
+					<li><a href="#" class="icon facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+					<li><a href="#" class="icon twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+					<li><a href="#" class="icon pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+					<li><a href="#" class="icon dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i><span></span></a></li>
+				</ul>	
+			</div>
+					<div class="clearfix"></div>
+				</div>
+
+
+
+
+
             <div class="btn_menu_search">
                 <div class="bg_in">
-                    <div class="table_row_search">
+                    <div class="table_row_search" style="display: flex;
+    justify-content: space-between;
+    width: 100%;">
                         <div class="menu_top_cate">
                             <div class="">
-                                <div class="menu" id="menu_cate">
+                                <div class="menu" id="menu_cate" style="height: 51px; background:none;">
                                     <div class="menu_left">
                                          Danh mục sản phẩm
                                     </div>
                                     <div class="cate_pro">
                                         <div id='cssmenu_flyout' class="display_destop_menu">
-                                            <ul>
+                                            <ul >
                                             <?php
                                                     foreach($category as $key => $cate){
                                                         ?>
-                                                <li class='active has-sub'>
+                                                <li >
                                                
-                                                        <a href='<?php echo BASE_URL ?>/sanpham/danhmuc/<?php echo $cate['id_category_product'] ?>'><span><?php echo $cate['title_category_product'] ?></span></a>
+                                                        <a style ="display: flex;" href='<?php echo BASE_URL ?>/sanpham/danhmuc/<?php echo $cate['id_category_product'] ?>'><span><?php echo $cate['title_category_product'] ?></span></a>
                                                 </li>
                                                  
                                                 <?php
@@ -119,12 +172,13 @@
                         </div>
                         <div class="search_top">
                             <div id='cssmenu'>
-                                <ul>
-                                    <li class='active'><a href='<?php echo BASE_URL ?>'>Trang chủ</a></li>
+                                <ul style=" display: flex !important;
+    justify-content: flex-end !important;height:51px !important;width:100% !important;">
+                                    <li ><a href='<?php echo BASE_URL ?>'>Trang chủ</a></li>
                                   
                                     <li class=''>
 
-                                        <a href='<?php echo BASE_URL ?>/sanpham/tatca'>Sản phẩm</a>           
+                                        <a  href='<?php echo BASE_URL ?>/sanpham/tatca'>Sản phẩm</a>           
                                                 <ul>
                                                 <?php
                                                     foreach($category as $key => $cate){
