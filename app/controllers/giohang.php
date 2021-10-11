@@ -12,6 +12,7 @@
             Session::init();
             // Session::destroy();
             $table = 'tbl_category_product';   
+            $table_admin = "tbl_accounts";
             $categorymodel = $this->load->model('categorymodel');
             $data['category'] = $categorymodel->category_home($table); 
 
@@ -21,11 +22,11 @@
         }
         public function dathang(){
             Session::init();
+            $tbl_account="tbl_accounts";
             $table_order = "tbl_order";
             $table_order_details = "tbl_order_details";
+            $table_product = "tbl_product";
             $ordermodel = $this->load->model('ordermodel');
-      
-  
             $name = $_POST['name'];
             $sodienthoai = $_POST['phone'];
             $email = $_POST['email'];
@@ -36,6 +37,19 @@
             $date = date("d/m/Y");
             $hour = date("h:i:sa");
             $order_date = $date.$hour;
+            $data['list_order_user_id'] =$ordermodel->list_order_user_id($table_order,$id);
+            $totalOrder = 0 ;
+            $order_code_detail = array();
+            
+            foreach($data['list_order_user_id'] as $key => $order_by_user_id){
+                $data['list_order_details_user_id']=$ordermodel->list_order_details_user_id($table_order_details, $order_by_user_id['order_code']);
+                foreach($data['list_order_details_user_id'] as $key => $list_order_details_user_id){
+                    $data['list_product_by_id'] = $ordermodel->list_product_by_id($table_product,$list_order_details_user_id['product_id']);
+                        foreach($data['list_product_by_id'] as $key => $list_product_by_id){
+                            $totalOrder += $list_product_by_id['price_product'] * $list_order_details_user_id['product_quantity'];
+                        }
+                }
+            }
             $data_order = array(
                 'order_status' => 0,
                 'order_code' => $order_code,
@@ -46,6 +60,7 @@
                 'order_email' => $email,
                 'order_address' => $diachi
             );
+
             $result_order = $ordermodel->insert_order($table_order,$data_order); 
            
             if(Session::get("shopping_cart")==true){
@@ -54,10 +69,49 @@
                         'order_code' => $order_code,
                         'product_id' => $value['product_id'],
                         'product_quantity' => $value['product_quantity'],
-                    
                     );
-                $result_order_details = $ordermodel->insert_order_details($table_order_details,$data_details); 
-                
+            $result_order_details = $ordermodel->insert_order_details($table_order_details,$data_details); 
+            $total = $value['product_quantity'] * $value['product_price'];
+            $result = $totalOrder + $total;
+            if ($result > 0 && $result <= 100000) {
+                $evaluate_id = 1;
+             $data_update = array(
+                 'evaluate_id'=> $evaluate_id
+             );
+             $cond = "tbl_accounts.accounts_id='$id'";
+             $result_order = $ordermodel->update_evalue($tbl_account,$data_update,$cond); 
+             echo "1";
+            
+            }
+           else if ($result > 100000 && $result <= 500000) {
+               $evaluate_id = 2;
+            $data_update = array(
+                'evaluate_id'=> $evaluate_id
+            );
+            $cond = "tbl_accounts.accounts_id='$id'";
+            $result_order = $ordermodel->update_evalue($tbl_account,$data_update,$cond); 
+            echo "2";
+
+           }
+           else if ($result > 500000 && $result < 100000){
+            $evaluate_id = 3;
+            $data_update = array(
+                'evaluate_id'=> $evaluate_id
+            );
+            $cond = "tbl_accounts.accounts_id='$id'";
+            $result_order = $ordermodel->update_evalue($tbl_account,$data_update,$cond); 
+            echo "3";
+
+           }
+           else {
+            $evaluate_id = 4;
+            $data_update = array(
+                'evaluate_id'=> $evaluate_id
+            );
+            $cond = "tbl_accounts.accounts_id='$id'";
+            $result_order = $ordermodel->update_evalue($tbl_account,$data_update,$cond); 
+            echo "4";
+           }
             require 'PHPMailer/PHPMailer.php';
             require 'PHPMailer/SMTP.php';
             require 'PHPMailer/Exception.php';
@@ -145,8 +199,8 @@
             }
         }
     }
-
-        }
+}
+        
         public function themgiohang(){
             Session::init();
             

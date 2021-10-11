@@ -36,10 +36,10 @@ Thêm  tài khoản người dùng
       <tr>
         <th>ID</th>
         <th>Họ Và Tên</th>
-        <th>Emil</th>
-        <th>Số Điện Thoại</th>
-        <th>Địa Chỉ</th>
-        <th>Loại Tài Khoản</th>
+        <th>Email</th>
+        <th>Số điện thoại</th>
+        <th>Địa chỉ</th>
+        <th>Loại tài khoản</th>
         <th>Quản lý</th>
       </tr>
     </thead>

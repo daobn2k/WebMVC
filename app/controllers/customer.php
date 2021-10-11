@@ -17,10 +17,12 @@
             $data['category'] = $categorymodel->category_home($table); 
             $table_admin = "tbl_accounts";
             $table_order = 'tbl_order';   
+            $table_evalue ='tbl_evaluateaccount';
             $customermodel = $this->load->model('customermodel');
             $data['customer_select'] = $customermodel->customer_info_admin($table_admin,$order_userid); 
+            $data['evalue'] = $customermodel ->evalue($table_evalue);
             $data['customer_select_code'] = $customermodel ->customer_select_code($table_order,$order_userid); 
-            $this->load->view('header');       
+            $this->load->view('header',$data);       
             $this->load->view('info',$data);
             $this->load->view('footer');
         }     
@@ -99,7 +101,6 @@
             }else{
                 $message['msg'] = "Cập nhật phẩm thất bại";
                 header('Location:'.BASE_URL."/customer/update/".$order_userid."?msg=".urlencode(serialize($message)));
-// header('Location:'.BASE_URL."/product/list_product?msg=".urlencode(serialize($message)));
             }
             }   
             $this->load->view('header');       

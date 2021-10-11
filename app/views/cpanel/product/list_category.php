@@ -8,9 +8,9 @@ Thêm Loại sản phẩm
 </form>
 
 <div class="input-group flex-nowrap">
-<form method="post" class="formsearch">
-  <input type="text" class="textbox" placeholder="Search">
-  <button title="Search" type="submit" class="button">
+<form method="POST" action ="" class="formsearch">
+  <input type="search" name= "search" class="textbox" placeholder="Vui lòng điền loại sản phẩm muốn tìm">
+  <button type="submit" class="button">
   <i class="fas fa-search"></i>
   </button>
 </form>
@@ -35,14 +35,56 @@ Thêm Loại sản phẩm
         <th>Quản lý</th>
       </tr>
     </thead>
+
+    <?php
+if(!empty($_POST["search"])){
+  $search_value=$_POST["search"];
+  if( $search_value !== '') {
+    $con=new mysqli('127.0.0.1','root','','pdo_blogs_ecommerce');
+    if($con->connect_error){
+        echo 'Connection Faild: '.$con->connect_error;
+        }else{
+            $sql="SELECT * FROM tbl_category_product WHERE tbl_category_product.title_category_product LIKE '%$search_value%'";
+            $res=$con->query($sql);
+            $i = 0;
+            while($row=$res->fetch_assoc()){
+              $i++;
+              ?>
+                  <tr>
+        <td><?php echo $i?></td>
+        <td><?php echo $row['title_category_product'] ?></td>
+        <td><?php echo $row['desc_category_product'] ?></td>
+        <td>
+        <a style="color:#404040;" href="<?php echo BASE_URL ?>/product/delete_category/<?php echo $row['id_category_product'] ?>"><i class="fas fa-trash"></i></a> || 
+        <a style="color:#404040;" href="<?php echo BASE_URL ?>/product/edit_category/<?php echo $row['id_category_product'] ?>"><i class="far fa-edit"></i></a></td>
+      </tr> 
+      <?php
+            }       
+            }
+    
+  }
+  else{
+    return null;
+  }
+?>
+<?php 
+}else{
+   if(!empty($_GET['msg'])){
+    $msg = unserialize(urldecode($_GET['msg']));
+    foreach ($msg as $key => $value){
+       echo "<script type='text/javascript'>alert('$value');</script>";
+    }
+ }
+?>
     <tbody>
     <?php
-    $i = 0;
+    $ia = 0;
     foreach($category as $key => $cate){
-        $i++;
+
+    $ia++;
     ?>
       <tr>
-        <td><?php echo $i ?></td>
+        <td><?php  echo  $ia ?></td>
         <td><?php echo $cate['title_category_product'] ?></td>
         <td><?php echo $cate['desc_category_product'] ?></td>
         <td>
@@ -50,6 +92,7 @@ Thêm Loại sản phẩm
         <a style="color:#404040;" href="<?php echo BASE_URL ?>/product/edit_category/<?php echo $cate['id_category_product'] ?>"><i class="far fa-edit"></i></a></td>
       </tr> 
     <?php
+    }
     }
     ?>
     </tbody>

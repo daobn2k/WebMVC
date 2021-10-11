@@ -61,6 +61,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href="<?php echo BASE_URL?>/public/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>/public/css/product.css">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>/public/css/style.css">
+    <!-- CSS only -->
 <link href="<?php echo BASE_URL ?>/asset/css/font-awesome.css" rel="stylesheet"> 
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>

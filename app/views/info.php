@@ -37,18 +37,22 @@
                </div>
                <?php
                foreach($customer_select as $key => $value){
+                  $id_evalue = $value['evaluate_id'];
+                  foreach($evalue as $key => $evalue){
+                     if($evalue['evaluate_id'] ===  $id_evalue){
+
                ?>
                <div class="content_text">
                   <div class="container_table">
                      <table class="table table-hover table-condensed">
                         <thead>
                            <tr class="tr tr_first">
-                              <th >Họ và Tên</th>
-                              <th>Email</th>
-                              <th >Phone</th>
-                              <th >Address</th>
-                            <th>Chức Năng</th>
-                             
+                              <th   style="font-size:16px;">Họ và Tên</th>
+                              <th  style="font-size:16px;">Email</th>
+                              <th   style="font-size:16px;">Số điện thoại</th>
+                              <th   style="font-size:16px;">Địa chỉ</th>
+                              <th   style="font-size:16px;">Loại Tài khoản</th>
+                            <th style="font-size:16px;"> Chức Năng</th>
                            </tr>
                         </thead>
                         <tbody>
@@ -69,33 +73,29 @@
                                        <h4 class="nomargin"><?php echo $value['phone'] ?></h4>
                                     </div>
                                  </td>
-                                 
+                               
                                  <td data-th="Address"><span class="color_red font_money"><?php  echo $value['address']?></span></td>
-                                     <td data-th="Phone">
+                                 <td data-th="evaluate">
+                                    <div class="col_table_name">
+                                       <h4 class="nomargin"><?php echo $evalue['evaluate_title']?></h4>
+                                    </div>
+                                 </td>   
+                                 <td data-th="Phone">
                                     <div class="col_table_name">
                                     <button type="submit" style="box-shadow: none;"  class="btn btn-sm btn-primary"><a href="<?php echo BASE_URL?>/customer/update/<?php echo $value['accounts_id']?>">Cập nhật</a></button>  
-
-
                                     </div>
                                  </td>                             
-                                 <td class="actions aligncenter" colspan = "2">
-                                 <div class="col_table_name">
-
-                             </div>     
-                                   </td>
                               </tr>
                               <?php
+                     }
+
                               }  
+                           }
                               ?>
-                          
-                        
                         </tbody>
                         <tfoot>
                         
                            <tr class="tr_last">
-                          
-                         
-                    
                         </tfoot>
                      </table>
                      <h3 style="text-align: center">Lịch Sử Mua Hàng</h3>
@@ -108,22 +108,22 @@
         $i++;
   ?>
       <tr>
-        <th>ID</th>
-        <th>Code đơn hàng</th>
-        <th>Ngày đặt</th>
-        <th>Tình trạng</th>
-        <th>Xử Lí</th>
-        <th>Thông Tin Đơn Hàng</th>
+        <th  style="font-size:16px;">ID</th>
+        <th  style="font-size:16px;">Code đơn hàng</th>
+        <th  style="font-size:16px;">Ngày đặt</th>
+        <th  style="font-size:16px;">Tình trạng</th>
+        <th  style="font-size:16px;">Xử Lí</th>
+        <th  style="font-size:16px;">Thông Tin Đơn Hàng</th>
       </tr>
     </thead>
     <tbody>
   
       <tr>
-        <td><?php echo $i?></td>
-        <td><?php echo $value['order_code']?></td>
-        <td><?php echo $value['order_date']?></td>
-        <td><?php if($value['order_status']==0){echo 'Đơn hàng mới';}else{echo 'Đã xử lý';}?></td>
-        <td>
+        <td  style="font-size:16px;"><?php echo $i?></td>
+        <td  style="font-size:16px;"><?php echo $value['order_code']?></td>
+        <td  style="font-size:16px;"><?php echo $value['order_date']?></td>
+        <td  style="font-size:16px;"><?php if($value['order_status']==0){echo 'Đơn hàng mới';}else{echo 'Đã xử lý';}?></td>
+        <td  style="font-size:16px;">
         <?php 
         if($value['order_status']==0){?>
          <a href="<?php echo BASE_URL?>/customer/huydonhang/<?php echo $value['order_code'];?>"

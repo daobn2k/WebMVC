@@ -4,7 +4,7 @@
 
 <div class="input-group flex-nowrap">
 <form method="post" class="formsearch">
-  <input type="text" class="textbox" placeholder="Search">
+  <input  type="search" name= "search" class="textbox" placeholder="Vui lòng Mã Đơn Hàng muốn tìm">
   <button title="Search" type="submit" class="button">
   <i class="fas fa-search"></i>
   </button>
@@ -29,6 +29,47 @@
         <th>Quản lý</th>
       </tr>
     </thead>
+
+    <?php
+if(!empty($_POST["search"])){
+  $search_value=$_POST["search"];
+  if( $search_value !== '') {
+    $con=new mysqli('127.0.0.1','root','','pdo_blogs_ecommerce');
+    if($con->connect_error){
+        echo 'Connection Faild: '.$con->connect_error;
+        }else{
+            $sql="SELECT * FROM tbl_order WHERE tbl_order.order_code LIKE '%$search_value%' or tbl_order.order_date LIKE '%$search_value%'";
+            $res=$con->query($sql);
+            $i = 0;
+            while($row=$res->fetch_assoc()){
+              $i++;
+              ?>
+               <tr>
+        <td><?php echo $i ?></td>
+        <td><?php echo $row['order_code'] ?></td>
+        <td><?php echo $row['order_date'] ?></td>
+        <td><?php if($row['order_status']==0){echo 'Đơn hàng mới';}else{echo 'Đã xử lý';}?></td>
+        <td><a href="<?php echo BASE_URL ?>/order/order_details/<?php echo $row['order_code'] ?>">Xem đơn hàng</a></td>
+      </tr> 
+
+      <?php
+            }       
+            }
+    
+  }
+  else{
+    return null;
+  }
+?>
+<?php 
+}else{
+   if(!empty($_GET['msg'])){
+    $msg = unserialize(urldecode($_GET['msg']));
+    foreach ($msg as $key => $value){
+       echo "<script type='text/javascript'>alert('$value');</script>";
+    }
+ }
+?>
     <tbody>
     <?php
     $i = 0;
@@ -43,6 +84,7 @@
         <td><a href="<?php echo BASE_URL ?>/order/order_details/<?php echo $ord['order_code'] ?>">Xem đơn hàng</a></td>
       </tr> 
     <?php
+    }
     }
     ?>
     </tbody>

@@ -88,6 +88,12 @@
         $sql = "SELECT * FROM $table  where $table.username = $username ";
         return $this->db->select($sql);
     }
+
+
+    public function get_product_daily($table){
+        $sql = "SELECT * FROM tbl_product ORDER BY RAND() LIMIT 5";
+        return $this->db->select($sql);        
+    }
     }
 ?>
 

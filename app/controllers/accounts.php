@@ -22,8 +22,6 @@ class accounts extends DController{
         $customermodel = $this->load->model('customermodel');
         $data['accounts'] = $customermodel->accounts_user($table_admin); 
 
-   
-
         $this->load->view('cpanel/header');   
         $this->load->view('cpanel/menu');    
         $this->load->view('cpanel/accounts/info_user',$data);
@@ -65,7 +63,6 @@ echo "ĐÃ xóa thành công";
             'address' => $address,
             'email'=> $email
         );
-
      
         $cond = "tbl_accounts.accounts_id='$id'";
         $result = $customermodel->updateinfo($table_admin,$data,$cond);

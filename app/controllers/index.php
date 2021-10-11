@@ -16,6 +16,7 @@
             $categorymodel = $this->load->model('categorymodel');
             $data['category'] = $categorymodel->category_home($table); 
             $data['product_home'] = $categorymodel->list_product_index($table_product); 
+            $data['get_product_daily'] = $categorymodel->get_product_daily($table_product);
             $data['getidbyusername']= $categorymodel->get_user_id($table_account,'duocadmin'); 
             $this->load->view('header',$data);       
             $this->load->view('home',$data);

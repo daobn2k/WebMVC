@@ -47,10 +47,13 @@
         $sql = "SELECT * FROM $table_order WHERE order_code = $order_code  ";
         return $this->db->select($sql);
 }
-    public function customer_select_code($table_order,$order_userid){
+public function customer_select_code($table_order,$order_userid){
         $sql = "SELECT * FROM $table_order WHERE order_userid = $order_userid  ";
         return $this->db->select($sql);
 }
+
+
+
 public function list_order_details($table_product,$table_order_details,$cond){
     $sql = "SELECT * FROM $table_order_details,$table_product WHERE $cond";
     return $this->db->select($sql);
@@ -69,5 +72,12 @@ public function deleteorder_details($table_order_details,$order_code){
 public function deleteorder($table_order,$order_code){
     return $this->db->delete($table_order,$order_code);
 }
+
+public function evalue($table){
+    $sql = "SELECT * FROM $table";
+    return $this->db->select($sql);
+}
+
+
 }
 ?>

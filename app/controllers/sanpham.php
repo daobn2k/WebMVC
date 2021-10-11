@@ -15,6 +15,7 @@
             $categorymodel = $this->load->model('categorymodel');
             $data['category'] = $categorymodel->category_home($table); 
             $data['list_product'] = $categorymodel->list_product_home($table_product); 
+          
 
             $this->load->view('header',$data);   
             $this->load->view('list_product',$data);

@@ -38,33 +38,20 @@
       <h6 class="collapse-header"> Thông tin cá nhân:</h6>
       <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_user">Tài Khoản Người Dùng</a>
       <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_accounts">Tài Khoản Quản Lý</a>
-
     </div>
   </div>
 </li>
-
-
-
-
-
-
-
-
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
     <i class="fas fa-fw fa-tasks"></i>
-    <span>Quản  lý Sản Phẩm </span>
+    <span>Quản  lý Đồ ăn </span>
   </a>
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Thông Tin:</h6>
-      <a class="collapse-item" href="<?php echo BASE_URL?>/product/list_category">Loại sản phẩm</a>
-
-      <a class="collapse-item" href="<?php echo BASE_URL?>/product/list_product">Sản phẩm</a>
-     
-      <a class="collapse-item" href="<?php echo BASE_URL?>/productdaily/list_productdaily">Sản phẩm hàng ngày</a>
-      <a class="collapse-item" href="<?php echo BASE_URL?>/productdaily/list_productdaily">Combo hàng ngày</a>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/product/list_category">Loại Đồ ăn</a>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/product/list_product">Danh sách Đồ ăn</a>
     </div>
   </div>
 </li>
@@ -79,8 +66,20 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Thông Tin:</h6>
       <a class="collapse-item" href="<?php echo BASE_URL?>/order/order">Đơn Hàng  </a>
+    </div>
+  </div>
+</li>
 
-     
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseabc1" aria-expanded="true" aria-controls="collapseUtilities">
+    <i class="fas fa-fw fa-shopping-cart"></i>
+    <span>Quản  lý Kho / Nhập Xuất </span>
+  </a>
+  <div id="collapseabc1" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <h6 class="collapse-header">Thông Tin:</h6>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/thuchi/listimport">Quản lý Nhập kho   </a>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/thuchi/list">Quản  lý  Tổng thu  </a>
     </div>
   </div>
 </li>

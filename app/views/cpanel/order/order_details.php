@@ -64,7 +64,7 @@
     ?>
     <form action="<?php echo BASE_URL ?>/order/order_confirm/<?php echo $ord['order_code'] ?>" method="POST">
     <tr>
-        <td><input type="submit" name="update_order" value="Đã xử lý" class="btn btn-success"></td>
+        <td><input type="submit" name="update_order" value="Xử lý đơn hàng" class="btn btn-success"></td>
         <td style="text-align:right" colspan="6">Tổng tiền : <?php echo number_format($total,0,',','.').'đ' ?></td>
     </tr>
     </form>

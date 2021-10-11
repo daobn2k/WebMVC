@@ -42,11 +42,11 @@
                      <table class="table table-hover table-condensed">
                         <thead>
                            <tr class="tr tr_first">
-                              <th >Hình ảnh</th>
-                              <th>Tên sản phẩm</th>
-                              <th >Giá</th>
-                              <th >Số lượng</th>
-                              <th colspan = "2">Thành tiền</th>
+                              <th  style="font-size:16px;">Hình ảnh</th>
+                              <th   style="font-size:16px;">Tên sản phẩm</th>
+                              <th  style="font-size:16px;">Giá</th>
+                              <th  style="font-size:16px;">Số lượng</th>
+                              <th  style="font-size:16px;" colspan = "2">Thành tiền</th>
                             <th></th>
                               <th> Chức Năng</th>
                            </tr>
