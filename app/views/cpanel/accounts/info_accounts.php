@@ -11,8 +11,8 @@ Thêm tài khoản quản lý
 
 <div class="input-group flex-nowrap">
 <form method="post" class="formsearch">
-  <input type="text" class="textbox" placeholder="ddasdaadsdsa ">
-  <button title="Search" type="submit" class="button">
+<input type="search" name= "search" class="textbox" placeholder="Điền tên quản lý muốn tìm ... ">
+  <button type="submit" class="button">
   <i class="fas fa-search"></i>
   </button>
 </form>
@@ -40,6 +40,48 @@ Thêm tài khoản quản lý
         <th>Quản lý</th>
       </tr>
     </thead>
+    <?php
+if(!empty($_POST["search"])){
+  $search_value=$_POST["search"];
+  if( $search_value !== '') {
+    $con=new mysqli('127.0.0.1','root','','pdo_blogs_ecommerce');
+    if($con->connect_error){
+        echo 'Connection Faild: '.$con->connect_error;
+        }else{
+            $sql="select * from tbl_accounts where fullname like '%$search_value%'";
+            $res=$con->query($sql);
+            $i = 0;
+            while($row=$res->fetch_assoc()){
+              $i++
+              ?>
+                <tr>
+        <td><?php echo $i?></td>
+        <td><?php echo $row['fullname'] ?></td>
+        <td><?php echo $row['email'] ?></td>
+        <td><?php echo $row['phone'] ?></td>
+        <td><?php echo $row['address'] ?></td>
+        <td><?php echo $row ['role']?></td>
+        <td><a href="<?php echo BASE_URL ?>/accounts/delete_accounts/<?php echo $row['accounts_id'] ?>">Xóa</a> || 
+        <a href="<?php echo BASE_URL ?>/accounts/edit_accounts/<?php echo $row['accounts_id'] ?>">Cập nhật</a>
+      </td>
+              <?php
+            }       
+            }
+    
+  }
+  else{
+    return null;
+  }
+?>
+<?php 
+}else{
+   if(!empty($_GET['msg'])){
+    $msg = unserialize(urldecode($_GET['msg']));
+    foreach ($msg as $key => $value){
+       echo "<script type='text/javascript'>alert('$value');</script>";
+    }
+ }
+?>
     <tbody>
     <?php
     $i = 0;
@@ -60,6 +102,7 @@ Thêm tài khoản quản lý
       </tr> 
     <?php
     }
+  }
     ?>
     </tbody>
   </table>

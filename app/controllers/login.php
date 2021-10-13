@@ -19,11 +19,27 @@
         public function dashboard(){
             Session::checkSession();
             
+            $table_accounts = "tbl_accounts";
+            $table_product = "tbl_product";
+            $table_category_product ="tbl_category_product";
+            $table_order = "tbl_order";
+            $table_order_detail = "tbl_order_details";
+            $tbl_stock = "tbl_stock";
+            
+
+            $dashbroadmodel = $this->load->model('dashbroadmodel');
+
+            $data['list_user'] = $dashbroadmodel->list_user($table_accounts);
+            $data['thu'] = $dashbroadmodel->getall($table_order,$table_order_detail,$table_product);
+            $data['list_stock'] = $dashbroadmodel->list_stock($tbl_stock);
+            $data['list_order']= $dashbroadmodel->list_order($table_order);
+            $data['list_order_status']= $dashbroadmodel->list_order_status($table_order);
             $this->load->view('cpanel/header');
             $this->load->view('cpanel/menu');
-            $this->load->view('cpanel/dashboard');
+            $this->load->view('cpanel/dashboard',$data);
             $this->load->view('cpanel/footer');
         }
+       
         public function authentication_login(){
             $username = $_POST['username'];
             $password = $_POST['password']; 

@@ -38,6 +38,9 @@
       <h6 class="collapse-header"> Thông tin cá nhân:</h6>
       <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_user">Tài Khoản Người Dùng</a>
       <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_accounts">Tài Khoản Quản Lý</a>
+      <h6 class="collapse-header"> Chăm sóc khách hàng:</h6>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_user">Quản lý ưu đãi</a>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_accounts">Quản lý Mail</a>
     </div>
   </div>
 </li>
@@ -78,7 +81,7 @@
   <div id="collapseabc1" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Thông Tin:</h6>
-      <a class="collapse-item" href="<?php echo BASE_URL?>/thuchi/listimport">Quản lý Nhập kho   </a>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/thuchi/listimport">Quản lý nhập  </a>
       <a class="collapse-item" href="<?php echo BASE_URL?>/thuchi/list">Quản  lý  Tổng thu  </a>
     </div>
   </div>

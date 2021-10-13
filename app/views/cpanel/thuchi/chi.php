@@ -1,5 +1,5 @@
 <html>
-<h3 style="text-align: center">Quản lý Nhập kho </h3>
+<h3 style="text-align: center">Quản lý nhập kho hàng </h3>
 <div class="container" style="    height: 100%; padding: 0 50px;">
     <form style="display: flex; align-items: center;
     margin-bottom: 25px;"

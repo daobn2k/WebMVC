@@ -78,6 +78,10 @@ public function evalue($table){
     return $this->db->select($sql);
 }
 
+public function list_sale($table){
+    $sql = "SELECT * FROM $table";
+    return $this->db->select($sql);
+}
 
 }
 ?>

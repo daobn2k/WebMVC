@@ -129,7 +129,7 @@ echo "ĐÃ xóa thành công";
                         header('Location:'.BASE_URL."/accounts/add_accountsadmin?msg=".urlencode(serialize($message)));
                     }
                         }
-}
+            }
     $this->load->view('cpanel/header');
     $this->load->view('cpanel/menu');
     $this->load->view('cpanel/accounts/add_accountsadmin',$data);
@@ -137,5 +137,18 @@ echo "ĐÃ xóa thành công";
     
   }
  
+
+  public function salecode(){
+    $table = "sale_user";
+    $table_admin = "tbl_accounts";;
+    $customermodel = $this->load->model('customermodel');
+    $data['list_sale'] = $customermodel->list_sale($table); 
+
+    
+    $this->load->view('cpanel/header');
+    $this->load->view('cpanel/menu');
+    $this->load->view('cpanel/accounts/salecode',$data);
+    $this->load->view('cpanel/footer');
+  }
 }
 ?>
