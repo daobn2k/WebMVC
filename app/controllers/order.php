@@ -11,11 +11,20 @@
        
             $ordermodel = $this->load->model('ordermodel');
             $table_order = "tbl_order";
-            $data['order'] = $ordermodel->list_order($table_order);
-
+            $data_count = count($ordermodel->list_order($table_order));
+            $limit = 5;
+            $data['page_count'] = ceil($data_count/$limit);
+            if (!isset($_GET['page'])) {
+                $page = 1;
+            } else {
+                $page = $_GET['page'];
+            }
+            $first_data_of_page = ($page-1)*$limit;
+            $data['order'] = $ordermodel->get_limit_order($table_order,$limit,$first_data_of_page);
             $this->load->view('cpanel/header');
             $this->load->view('cpanel/menu');
             $this->load->view('cpanel/order/order',$data);
+            $this->load->view('pagenation',$data);
             $this->load->view('cpanel/footer');
          }
          public function order_details($order_code){

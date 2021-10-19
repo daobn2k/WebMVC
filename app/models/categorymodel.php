@@ -46,7 +46,7 @@
             return $this->db->select($sql);        
         }
         public function list_product_home($table_product){
-            $sql = "SELECT * FROM $table_product ORDER BY $table_product.id_product DESC ";
+            $sql = "SELECT * FROM $table_product ";
             return $this->db->select($sql);        
         }
         public function list_product_index($table_product){
@@ -94,6 +94,15 @@
         $sql = "SELECT * FROM tbl_product ORDER BY RAND() LIMIT 5";
         return $this->db->select($sql);        
     }
+
+    // edit by so 1 Hug Vug
+    
+    public function get_limit_page($table,$limit,$first_data_of_page)
+    {
+        $sql = "select * from $table limit $first_data_of_page,$limit";
+        return $this->db->select($sql);
+    }
+
     }
 ?>
 
