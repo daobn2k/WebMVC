@@ -52,5 +52,12 @@
     public function update_evalue($table_admin,$data,$cond){
         return $this->db->update($table_admin,$data,$cond);
     }
+
+    // edit by so 1 Hug Vuog
+    public function get_limit_order($table_order,$limit,$first_data_of_page)
+    {
+        $sql = "select * from $table_order limit $first_data_of_page,$limit";
+        return $this->db->select($sql);
+    }
 }
 ?>
