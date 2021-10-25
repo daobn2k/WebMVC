@@ -95,9 +95,23 @@
            $this->load->view('cpanel/menu');
            $table_product = "tbl_product";
            $table_category = "tbl_category_product";
-           $categorymodel = $this->load->model('categorymodel'); 
-           $data['product'] = $categorymodel->product($table_product, $table_category);
+        //    $categorymodel = $this->load->model('categorymodel'); 
+        //    $data['product'] = $categorymodel->product($table_product, $table_category);
+        $categorymodel = $this->load->model("categorymodel");
+        // $data['category'] = $categorymodel->category_home($table_category);
+        $limit = 10;
+        $count_data = count($categorymodel->list_product_home($table_product));
+        $data['page_count'] = ceil($count_data/$limit);
+        if (!isset($_GET['page'])) {
+            $page = 1;
+        } else {
+            $page = $_GET['page'];
+        }
+        $first_data_of_page = ($page-1)*$limit;
+        $data['list_product'] = $categorymodel->product_limit_admin($table_product,$table_category,$first_data_of_page,$limit);
+
            $this->load->view('cpanel/product/list_product', $data);
+           $this->load->view('pagenation',$data);
            $this->load->view('cpanel/footer');
        }
         public function list_category(){

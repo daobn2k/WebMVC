@@ -91,7 +91,7 @@ if(!empty($_POST["search"])){
     <tbody>
     <?php
     $i = 0;
-    foreach($product as $key => $pro){
+    foreach($list_product as $key => $pro){
         $i++;
     ?>
       <tr>

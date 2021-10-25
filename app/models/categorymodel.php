@@ -58,7 +58,7 @@
         }
         public function product($table_product, $table_category){
             $sql = "SELECT * FROM $table_product,$table_category WHERE $table_product.id_category_product=$table_category.id_category_product
-            ORDER BY $table_product.id_product DESC ";
+            ORDER BY $table_product.id_product DESC";
             return $this->db->select($sql);        
         }
         public function deleteproduct($table_product,$cond){
@@ -101,6 +101,12 @@
     {
         $sql = "select * from $table limit $first_data_of_page,$limit";
         return $this->db->select($sql);
+    }
+
+    public function product_limit_admin($table_product, $table_category,$first_data_of_page,$limit){
+        $sql = "SELECT * FROM $table_product,$table_category WHERE $table_product.id_category_product=$table_category.id_category_product
+        ORDER BY $table_product.id_product DESC limit $first_data_of_page,$limit";
+        return $this->db->select($sql);        
     }
 
     }
