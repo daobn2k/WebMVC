@@ -1,4 +1,11 @@
-
+<?php 
+ if(!empty($_GET['msg'])){
+  $msg = unserialize(urldecode($_GET['msg']));
+  foreach ($msg as $key => $value){
+     echo "<script type='text/javascript'>alert('$value');</script>";
+  }
+}
+?>
 <div class="container-fluid">
 
 <!-- DataTales Example -->
@@ -6,7 +13,7 @@
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary" style="display:flex;justify-content: space-between;align-items:center;">Danh sách ưu đãi
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-              <a style="color:#fff;"href="newsale.php">Thêm mới ưu đãi </a>
+              <a style="color:#fff;"href="<?php echo BASE_URL ?>/accounts/newsale">Thêm mới ưu đãi </a>
             </button>
     </h6>
   </div>
@@ -49,7 +56,7 @@
                                           echo 'Hết thời hạn';
                                         } ?></td>
                                         <td style="display:flex;aligns-item:center;justify-content:center;">
-                                        <a style="color:#404040;margin-right:4px;" href="/shoppingweb/newsale.php?delete_id=<?php echo $value['sale_id']?>"><i class="far fa-trash-alt"></i></a> 
+                                        <a style="color:#404040;margin-right:4px;" href="<?php echo BASE_URL ?>/accounts/newsale?delete_id=<?php echo $value['sale_id']?>"><i class="far fa-trash-alt"></i></a> 
                                         </td>
                                     </tr>
                                     <?php 

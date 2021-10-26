@@ -59,5 +59,17 @@
         $sql = "select * from $table_order limit $first_data_of_page,$limit";
         return $this->db->select($sql);
     }
+
+    public function get_sale($table_sale,$id,$sale_code)
+    {
+        $sql = "SELECT * FROM $table_sale WHERE sale_user_id = $id and sale_code = '$sale_code'";
+
+        return $this->db->select($sql);
+    }
+
+    public function delete_sale_code($table_sale,$cond)
+    {
+        return $this->db->delete($table_sale,$cond);
+    }
 }
 ?>

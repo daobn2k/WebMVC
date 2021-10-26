@@ -39,8 +39,8 @@
       <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_user">Tài Khoản Người Dùng</a>
       <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_accounts">Tài Khoản Quản Lý</a>
       <h6 class="collapse-header"> Chăm sóc khách hàng:</h6>
-      <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_user">Quản lý ưu đãi</a>
-      <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_accounts">Quản lý Mail</a>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/salecode">Quản lý ưu đãi</a>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/mail">Quản lý Mail</a>
     </div>
   </div>
 </li>
@@ -259,7 +259,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                   
-               ADMIN
+                <?php echo $_SESSION['fullname']?>
                   
                 </span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">

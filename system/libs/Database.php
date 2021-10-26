@@ -10,9 +10,6 @@
         foreach($data as $key => $value){
             $statement->bindParam($key,$value);
         }
-        
-           
-
 
        
         $statement->execute();

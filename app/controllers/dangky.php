@@ -10,9 +10,6 @@
             $this->dangky();
         }
         public function dangky(){
-          
-
-           
             $this->load->view('cpanel/dangky');
            
         }

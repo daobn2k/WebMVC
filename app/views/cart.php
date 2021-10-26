@@ -275,10 +275,14 @@
                               <form name="FormDatHang" method="POST" autocomplete="off" action="<?php echo BASE_URL ?>/giohang/dathang" >
                                  <div class="content-box_contact">
                                  <div class="row btnclass">
+                                        <div class="input" style="margin-bottom:20px; border-radius: 4px;max-width: 150px; height:48px;">
+                                          <label> <span style="color:red;"></span></label>
+                                          <input style="font-size:14px;line-height:20px; border-radius: 4px;max-width: 150px; height:48px;" type="text" name="sale_code" required class="clsip" placeholder="Input your sale code ... ">
+                                       </div>
                                        <div class="input ipmaxn ">
                                           <input type="submit" class="btn btn-success" name="frmSubmit" id="frmSubmit" value="Gửi đơn hàng" style = "width:150px; font-size:16px;">
                                        </div>
-                                       
+                                    </div>
                                     </div>         
                                     <div class="row">
                                        <div class="input">

@@ -22,6 +22,7 @@
         }
         public function dathang(){
             Session::init();
+            $table_sale="sale_user";
             $tbl_account="tbl_accounts";
             $table_order = "tbl_order";
             $table_order_details = "tbl_order_details";
@@ -40,7 +41,15 @@
             $data['list_order_user_id'] =$ordermodel->list_order_user_id($table_order,$id);
             $totalOrder = 0 ;
             $order_code_detail = array();
-            
+            $sale = 0;
+            $sale_id;
+            if(isset($_POST['sale_code'])){
+                $sale_code = $_POST['sale_code'];
+                $id_user = $_SESSION['userid'];
+                $data['get_sale']= $ordermodel->get_sale($table_sale,$id_user,$sale_code);
+                $sale = $data['get_sale'][0]['sale'];
+                $sale_id=$data['get_sale'][0]['sale_id'];
+            };
             foreach($data['list_order_user_id'] as $key => $order_by_user_id){
                 $data['list_order_details_user_id']=$ordermodel->list_order_details_user_id($table_order_details, $order_by_user_id['order_code']);
                 foreach($data['list_order_details_user_id'] as $key => $list_order_details_user_id){
@@ -70,9 +79,13 @@
                         'product_id' => $value['product_id'],
                         'product_quantity' => $value['product_quantity'],
                     );
+          
             $result_order_details = $ordermodel->insert_order_details($table_order_details,$data_details); 
-            $total = $value['product_quantity'] * $value['product_price'];
+            $sale_oder = ( $sale * ( $value['product_quantity'] * $value['product_price'] ) ) / 100 ;
+            $total = $value['product_quantity'] * $value['product_price'] -  $sale_oder;
             $result = $totalOrder + $total;
+            $cond_delete_id = `sale_id=`.$sale_id;
+            $data = $ordermodel ->delete_sale_code($table_sale,$cond_delete_id);
             if ($result > 0 && $result <= 100000) {
                 $evaluate_id = 1;
              $data_update = array(
@@ -80,7 +93,6 @@
              );
              $cond = "tbl_accounts.accounts_id='$id'";
              $result_order = $ordermodel->update_evalue($tbl_account,$data_update,$cond); 
-             echo "1";
             
             }
            else if ($result > 100000 && $result <= 500000) {
@@ -90,7 +102,6 @@
             );
             $cond = "tbl_accounts.accounts_id='$id'";
             $result_order = $ordermodel->update_evalue($tbl_account,$data_update,$cond); 
-            echo "2";
 
            }
            else if ($result > 500000 && $result < 100000){
@@ -100,7 +111,6 @@
             );
             $cond = "tbl_accounts.accounts_id='$id'";
             $result_order = $ordermodel->update_evalue($tbl_account,$data_update,$cond); 
-            echo "3";
 
            }
            else {
@@ -110,7 +120,6 @@
             );
             $cond = "tbl_accounts.accounts_id='$id'";
             $result_order = $ordermodel->update_evalue($tbl_account,$data_update,$cond); 
-            echo "4";
            }
             require 'PHPMailer/PHPMailer.php';
             require 'PHPMailer/SMTP.php';
@@ -149,12 +158,14 @@
                 <th>Tên sản phẩm</th>
                 <th >Giá</th>
                 <th>Số lượng</th>
+                <th>Giảm giá </th>
                 <th>Thành tiền</th>
                
              </tr> ";
              foreach (Session::get("shopping_cart") as $key => $value){ 
-                 $total = $value['product_quantity'] * $value['product_price'];
-                
+                $sale_oder = ( $sale * ( $value['product_quantity'] * $value['product_price'] ) ) / 100 ;
+                $total = $value['product_quantity'] * $value['product_price'] - $sale_oder;
+                $result_bill += $total 
             $content .="   <tr>
             <td >
             <div>
@@ -175,17 +186,18 @@
                         <h4 >  ". $diachi."</h4>
                         </div> 
                       </td>  
-                   
+
                         <td >
                             <div><h4 > ".$value['product_title']."</h4>   </div>
                         </td>
                     <td ><h4 > ".$value['product_price']."</h4></td>
                     <td style = 'text-align:center'><h4 > ".$value['product_quantity']."</h4></td>
+                    <td style = 'text-align:center'><h4 > ".$sale."%"."</h4></td>
                     <td ><h4 > ".$total."</h4></td>
 
-              </tr>";
+              </tr>"."</br>"."Total Bill:".$result_bill;
              }
- $content .= "</table>";
+            $content .= "</table>" ;
                 $mail->Subject = 'Bạn Đã Đặt hàng Thành Công!';
                 $mail->Body    = "Thông Tin Chi Tiết Đơn Hàng : " .$content."<br>"."Cảm ơn Quý Khách Đã Đặt Hàng !";
                 $mail->CharSet="UTF-8";
