@@ -40,7 +40,6 @@
                   $id_evalue = $value['evaluate_id'];
                   foreach($evalue as $key => $evalue){
                      if($evalue['evaluate_id'] ===  $id_evalue){
-
                ?>
                <div class="content_text">
                   <div class="container_table">

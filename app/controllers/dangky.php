@@ -31,6 +31,7 @@
             'phone'=> $phone,
             'address'=> $address,
             'role' => $role,
+            'evaluate_id'=> 1
         );
         $dangkymodel = $this->load->model('dangkymodel');
         $result = $dangkymodel->insertproduct($table,$data);

@@ -40,7 +40,7 @@
       <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/info_accounts">Tài Khoản Quản Lý</a>
       <h6 class="collapse-header"> Chăm sóc khách hàng:</h6>
       <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/salecode">Quản lý ưu đãi</a>
-      <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/mail">Quản lý Mail</a>
+      <a class="collapse-item" href="<?php echo BASE_URL?>/accounts/mail">Chăm Sóc Khách Hàng</a>
     </div>
   </div>
 </li>

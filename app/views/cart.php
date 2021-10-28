@@ -277,7 +277,7 @@
                                  <div class="row btnclass">
                                         <div class="input" style="margin-bottom:20px; border-radius: 4px;max-width: 150px; height:48px;">
                                           <label> <span style="color:red;"></span></label>
-                                          <input style="font-size:14px;line-height:20px; border-radius: 4px;max-width: 150px; height:48px;" type="text" name="sale_code" required class="clsip" placeholder="Input your sale code ... ">
+                                          <input style="font-size:14px;line-height:20px; border-radius: 4px;max-width: 150px; height:48px;" type="text" name="sale_code"  class="clsip" placeholder="Input your sale code ... ">
                                        </div>
                                        <div class="input ipmaxn ">
                                           <input type="submit" class="btn btn-success" name="frmSubmit" id="frmSubmit" value="Gửi đơn hàng" style = "width:150px; font-size:16px;">
@@ -287,7 +287,7 @@
                                     <div class="row">
                                        <div class="input">
                                           <label> <span style="color:red;"></span></label>
-                                          <input type="hidden" name="name" required class="clsip" value = "<?php echo $_SESSION['fullname']?>">
+                                          <input type="hidden" name="name"  class="clsip" value = "<?php echo $_SESSION['fullname']?>">
                                        </div>
                                        <div class="clear"></div>
                                     </div>
@@ -295,7 +295,7 @@
                                     <div class="row">
                                        <div class="input">
                                           <label><span style="color:red;">*</span></label>
-                                          <input type="hidden" name="phone" required onkeydown="return checkIt(event)" class="clsip" value = "<?php echo $_SESSION['phone']?>">
+                                          <input type="hidden" name="phone"  onkeydown="return checkIt(event)" class="clsip" value = "<?php echo $_SESSION['phone']?>">
                                        </div>
                                        <div class="clear"></div>
                                     </div>
@@ -303,7 +303,7 @@
                                     <div class="row">
                                        <div class="hidden">
                                           <label>Địa chỉ: <span style="color:red;">*</span></label>
-                                          <input type="text" name="address" required class="clsip" value = "<?php echo $_SESSION['address']?>" >
+                                          <input type="text" name="address"  class="clsip" value = "<?php echo $_SESSION['address']?>" >
                                        </div>
                                        <div class="clear"></div>
                                     </div>
@@ -311,7 +311,7 @@
                                     <div class="row">
                                        <div class="hidden">
                                           <label>Email: <span style="color:red;">*</span></label>
-                                          <input type="text" name="email" onchange="return KiemTraEmail(this);" required class="clsip" value = "<?php echo $_SESSION['email']?>">
+                                          <input type="text" name="email"   class="clsip" value = "<?php echo $_SESSION['email']?>">
                                        </div>
                                        <div class="clear"></div>
                                     </div>
@@ -319,7 +319,7 @@
                                     <div class="row">
                                        <div class="hidden">
                                           <label>ID: <span style="color:red;">*</span></label>
-                                          <input type="text" name="id" onchange="return KiemTraEmail(this);" required class="clsip" value = "<?php echo $_SESSION['userid']?>">
+                                          <input type="text" name="id"   class="clsip" value = "<?php echo $_SESSION['userid']?>">
                                        </div>
                                        <div class="clear"></div>
                                     </div>

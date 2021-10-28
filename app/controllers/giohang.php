@@ -165,7 +165,7 @@
              foreach (Session::get("shopping_cart") as $key => $value){ 
                 $sale_oder = ( $sale * ( $value['product_quantity'] * $value['product_price'] ) ) / 100 ;
                 $total = $value['product_quantity'] * $value['product_price'] - $sale_oder;
-                $result_bill += $total 
+                $result_bill += $total; 
             $content .="   <tr>
             <td >
             <div>
@@ -197,7 +197,7 @@
 
               </tr>"."</br>"."Total Bill:".$result_bill;
              }
-            $content .= "</table>" ;
+            $content .= "</table>";
                 $mail->Subject = 'Bạn Đã Đặt hàng Thành Công!';
                 $mail->Body    = "Thông Tin Chi Tiết Đơn Hàng : " .$content."<br>"."Cảm ơn Quý Khách Đã Đặt Hàng !";
                 $mail->CharSet="UTF-8";
